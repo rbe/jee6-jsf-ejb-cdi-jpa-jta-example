@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+    <title>JTA Example</title>
+</h:head>
+<h:body>
+    <h:outputText value="#{jtaBean.helloFromModuleConfig}"/>
+    <h:outputText value="#{jtaBean.getFromConfig('foo')}"/>
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputLabel for="customerId" value="ID"/>
+            <h:inputText id="customerId" value="#{jtaBean.id}"/>
+
+            &nbsp;
+            <h:commandButton action="#{jtaBean.findCustomer}" value="Find"/>
+
+            <h:outputLabel for="customerVersion" value="Version"/>
+            <h:outputText id="customerVersion" value="#{jtaBean.version}"/>
+
+            <h:outputLabel for="customerFirstname" value="Firstname"/>
+            <h:inputText id="customerFirstname" value="#{jtaBean.firstname}"/>
+
+            <h:outputLabel for="customerLastname" value="Lastname"/>
+            <h:inputText id="customerLastname" value="#{jtaBean.lastname}"/>
+
+            &nbsp;
+            <h:commandButton action="#{jtaBean.createCustomer}" value="Create"/>
+
+            &nbsp;
+            <h:commandButton action="#{jtaBean.editCustomer()}" value="Edit"/>
+
+            &nbsp;
+            <h:commandButton action="#{jtaBean.changeName}" value="Change name"/>
+
+            &nbsp;
+            <h:commandButton action="#{jtaBean.rollbackChangeName()}" value="Change name w/ rollback"/>
+        </h:panelGrid>
+        <h:messages/>
+    </h:form>
+</h:body>
+</html>
